@@ -1,0 +1,1 @@
+execute as @a[gamemode=survival] run function datapack:display

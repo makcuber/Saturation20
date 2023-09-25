@@ -1,0 +1,3 @@
+gamerule commandBlockOutput false
+say Saturation20 Reloaded
+scoreboard objectives add saturation dummy

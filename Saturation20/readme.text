@@ -1,0 +1,76 @@
+# This file outlines changes made to this datapack by Mak_Cuber for the purposes of 1.20.2 compatibility
+# These changes primarily fix a character offset issue affecting the graphical positioning of the saturation icons
+# Additionally, a fix was added to omit the Saturation Icons when the player is riding any mount, since the hunger icons are not visible when riding any mob
+# The datapack and resource pack versions were also updated to 18 for 1.20.2
+#
+# This Datapack must be used with the accompaning Resource Pack of the same name, which has also been updated to the latest datapack version
+# If the accompaning resource pack is not used, the title will show as blank unicode characters []
+
+# The way this Datapack works is by creating a custom actionbar title where the characters in the title text are the custom saturation icons
+# The Saturation Icons are implemented as a custom font, and are assigned to unicode IDs in the private unicode namespace (Ex: \uE000 is assigned to Full Stauration Icon png)
+# The spacing between icons and from the starting of the title text is facilitated by an array of blank icons of different pixel sizes
+# By chaining these different sized blank icons together a specific pixel spacing can be set within the title text between each Saturation Icon
+#
+# However, the original Datapack created for 1.17 had incosistent spacing (see details below)
+# This caused the saturation icons to be shifted to the right and be out of alignment with the Hunger icons they were supposed to overlay
+# After manually deciphering the spacing used, it was clear that something had changed since 1.17 such that the varied spacing was no longer needed
+# Changing the spacing to the default space used what saturation was full and empty (97 pixels), completely fixed the graphical alignment issue
+# This technically eliminates the need for all the other custom blank icon png files no used for the default spacing
+# However, in case an issue like this occurs again in future updates, the png files have been left intact and the original spacing recorded below
+
+# To hide the Saturation Icons when a player is riding, each execute command in the display.mcfunction file now include an "unless" portion
+# which checks if the target entity has the RootVehicle NBT tag, which denotes that the entity is riding onto of another entity
+
+### Details used for the character offset troubleshooting
+#
+# No Icon (9-4=5)
+# Half Icon (9-4=5)
+# Full Icon (9-4=5)
+
+# "\uE000\uF802" >> Sat1 + Space >> Full Saturation Icon
+# "\uE001\uF802" >> Sat2 + Space >> Half Saturation Icon
+# "\uE002\uF802" >> Sat3 + Space >> Null Saturation Icon
+# \uE000 >> minecraft:custom/saturation.png a=-26 h=9 >> Full Saturation Icon
+# \uE001 >> minecraft:custom/saturation2.png a=-26 h=9 >> Half Saturation Icon
+# \uE002 >> minecraft:custom/saturation3.png a=-26 h=9 >> Null Saturation Icon
+
+# "\uE000\uF802" >> Sat1 + Space >> Full Saturation Icon
+# "\uE001\uF802" >> Sat2 + Space >> Half Saturation Icon
+# "\uE002\uF802" >> Sat3 + Space >> Null Saturation Icon
+# \uE000 >> minecraft:custom/saturation.png a=-26 h=9 >> Full Saturation Icon
+# \uE001 >> minecraft:custom/saturation2.png a=-26 h=9 >> Half Saturation Icon
+# \uE002 >> minecraft:custom/saturation3.png a=-26 h=9 >> Null Saturation Icon
+
+### Orignal Spacing ###
+#
+# Saturation 20 (Full Icon): "\uF82B\uF82A\uF824" >> space(63) + space(31) + space(3) = 97 pixels, 0 from default
+# Saturation 19 (Half Icon): "\uF82B\uF82A\uF824" >> space(63) + space(31) + space(3) = 97 pixels, 0 from default
+
+# Saturation 18 (Full Icon): "\uF82B\uF82A\uF829\uF804" >> space(63) + space(31) + space(15) + space(-6) = 103 pixels, 6 from default (103-97), 6 from previous (103-97)
+# Saturation 17 (Half Icon): "\uF82B\uF82A\uF829\uF804" >> space(63) + space(31) + space(15) + space(-6) = 103 pixels, 6 from default (103-97), 6 from previous (103-97)
+
+# Saturation 16 (Full Icon): "\uF82B\uF82A\uF829\uF825" >> space(63) + space(31) + space(15) + space(4) = 113 pixels, 16 from default (113-97), 10 from previous (113-103)
+# Saturation 15 (Half Icon): "\uF82B\uF82A\uF829\uF825" >> space(63) + space(31) + space(15) + space(4) = 113 pixels, 16 from default (113-97), 10 from previous (113-103)
+
+# Saturation 14 (Full Icon): "\uF82C\uF802" >> space(127) + space(-4) = 123 pixels, 26 from default (123-97), 10 from previous (123-113)
+# Saturation 13 (Half Icon): "\uF82C\uF802" >> space(127) + space(-4) = 123 pixels, 26 from default (123-97), 10 from previous (123-113)
+
+# Saturation 12 (Full Icon): "\uF82C\uF828" >> space127 + space7 = 134 pixels, 37 from default (134-97), 11 from previous (134-123)
+# Saturation 11 (Half Icon): "\uF82C\uF829\uF808" >> space127 + space31 + space-10 = 148 pixels, 51 from default (148-97), 14 from previous (148-134)
+
+# Saturation 10 (Full Icon): "\uF82C\uF829" >> space127 + space15 = 142 pixels, 45 from default (142-97), 8 from previous (142-134)
+# Saturation 09 (Half Icon): "\uF82C\uF829" >> space127 + space15 = 142 pixels, 45 from default (142-97), 8 from previous (142-134)
+
+# Saturation 08 (Full Icon): "\uF82C\uF829\uF829\uF806" >> space127 + space15 + space15 +space-8 = 149 pixels, 52 from default (149-97), 7 from previous (149-142)
+# Saturation 07 (Half Icon): "\uF82C\uF829\uF829\uF806" >> space127 + space15 + space15 +space-8 = 149 pixels, 52 from default (149-97), 7 from previous (149-142)
+
+# Saturation 06 (Full Icon): "\uF82C\uF82A\uF822" >> space127 + space31 + space1 = 159 pixels, 62 from default (159-97), 10 from previous (159-149)
+# Saturation 05 (Half Icon): "\uF82C\uF82A\uF822" >> space127 + space31 + space1 = 159 pixels, 62 from default (159-97), 10 from previous (159-149)
+
+# Saturation 04 (Full Icon): "\uF82C\uF82A\uF829\uF804" >> space127 + space31 + space15 + space-6 = 167 pixels, 70 from default (167-97), 8 from previous (167-159)
+# Saturation 03 (Half Icon): "\uF82C\uF82A\uF829\uF804" >> space127 + space31 + space15 + space-6 = 167 pixels, 70 from default (167-97), 8 from previous (167-159)
+
+# Saturation 02 (Full Icon): "\uF82C\uF82A\uF82A\uF824\uF809" >> space127 + space31 + space3 + space-18 = 143 pixels, 46 from default (143-97), -26 from previous (143-167)
+# Saturation 01 (Half Icon): "\uF82C\uF82A\uF82A\uF824\uF809" >> space127 + space31 + space3 + space-18 = 143 pixels, 46 from default (143-97), -26 from previous (143-167)
+
+# Saturation 00 (No Icon): "\uF82B\uF82A\uF824" >> space63 + space31 + space3 = 97 pixels, 0 from default
