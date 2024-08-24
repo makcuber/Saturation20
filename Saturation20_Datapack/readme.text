@@ -1,7 +1,8 @@
-# This file outlines changes made to this datapack by Mak_Cuber for the purposes of 1.20.2 compatibility
+# This file outlines changes made to this datapack by Mak_Cuber for the purposes of compatibility with Minecraft Java version 1.20.2 and newer
 # These changes primarily fix a character offset issue affecting the graphical positioning of the saturation icons
 # Additionally, a fix was added to omit the Saturation Icons when the player is riding any mount, since the hunger icons are not visible when riding any mob
-# The datapack and resource pack versions were also updated to 18 for 1.20.2
+#
+# The datapack version has also been updated to 48 and the resource pack version has been updated to 34 for 1.21.1 compatibility
 #
 # This Datapack must be used with the accompaning Resource Pack of the same name, which has also been updated to the latest datapack version
 # If the accompaning resource pack is not used, the title will show as blank unicode characters []
