@@ -15,7 +15,8 @@ The changes compared to the original Saturation Bar Datapack include:
 
 ## Installation ##
 
-<b>NOTE: This Datapack must be used with the accompaning Resource Pack (the folder labelled Saturation20_ResourcePack), which has also been updated to the latest datapack version for Minecraft 1.21.1. If the accompaning resource pack is not used, the custom title actionbar will show as the blank unicode characters: <code>[]</code> </b>
+<b>NOTE: This Datapack must be used with the accompaning Resource Pack (the folder labelled Saturation20_ResourcePack), which has also been updated to the latest datapack version for Minecraft 1.21.1. If the accompaning resource pack is not used, the custom title actionbar will show as the blank unicode characters: </br>
+Example: `[][][][][][][][][][][][][][][][][][][][][][][]` </b>
 
 ### Install in Single Player/Local World ###
 
@@ -50,6 +51,12 @@ IMPORTANT: The colon character `:` in the URL above must be escape with the proc
 
 5. Ensure the changes to your server.properties file are saved then restart your Minecraft Server
 6. Connect to your Minecraft Server and accept the Resouce Pack
+
+### Missing Resource Pack Error ###
+
+<b>This Datapack must be used with the accompaning Resource Pack (the folder labelled Saturation20_ResourcePack), which has also been updated to the latest datapack version for Minecraft 1.21.1. If the accompaning resource pack is not used, the custom title actionbar will show a Title of blank unicode characters: </br>
+Example: `[][][][][][][][][][][][][][][][][][][][][][][]` </b>
+![Alt text](screenshots/saturation_bar_missing_resource_pack.png)
 
 <br>
 
