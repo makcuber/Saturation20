@@ -1,6 +1,6 @@
 {
     "pack": {
-        "pack_format": 18,
-        "description": "Adds Saturation icons"
+        "pack_format": 48,
+        "description": "Adds Saturation icons (requires Saturation20_ResourcePack)"
     }
 }
